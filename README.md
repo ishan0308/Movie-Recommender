@@ -8,6 +8,8 @@ This repository features a movie recommendation system that leverages cosine sim
 - Delivers movie recommendations based on calculated similarity.
 - Enables efficient search and retrieval of movie recommendations.
 
+Link to the deployed app : https://isha-movie-recommender.streamlit.app/
+
 ## Installation
 1. Clone the repository: `git clone https://github.com/ishan0308/Movie-Recommender.git`
 2. Install the required dependencies: `pip install -r requirements.txt`
