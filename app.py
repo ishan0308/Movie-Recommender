@@ -21,12 +21,11 @@ def recommend(movie):
         recommended_movie_posters.append(fetch_poster(movie_id))
         recommended_movie_names.append(movies.iloc[i[0]].title)
 
-    return recommended_movie_names,recommended_movie_posters
-
+    return recommended_movie_names, recommended_movie_posters
 
 st.header('Movie Recommendation System')
-movies = pickle.load(open('movie_list.pkl','rb'))
-similarity = pickle.load(open('similarity.pkl','rb'))
+movies = pickle.load(open('movie_list.pkl', 'rb'))
+similarity = pickle.load(open('similarity.pkl', 'rb'))
 
 movie_list = movies['title'].values
 selected_movie = st.selectbox(
@@ -34,10 +33,9 @@ selected_movie = st.selectbox(
     movie_list
 )
 
-# Custom CSS to change the button color
+# Custom CSS to adjust image size and button styles
 st.markdown("""
     <style>
-    
     div.stButton > button {
         background-color: blue;
         color: white;
@@ -50,9 +48,9 @@ st.markdown("""
     div.stButton > button:hover {
         background-color: darkblue;
         color: white;
-        transform: scale(1.05);  /* Slightly increase the size */
-        transition: all 0.2s ease-in-out;  /* Smooth transition */
-        box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);  /* Add a subtle shadow */
+        transform: scale(1.05);
+        transition: all 0.2s ease-in-out;
+        box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
     }
     
     div.stButton > button:focus {
@@ -60,17 +58,23 @@ st.markdown("""
         color: white !important;
     }
 
+    .movie-container {
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    .movie-poster {
+        width: 100%;
+        height: auto;
+        max-height: 300px; /* Set a max height to prevent oversized images */
+        object-fit: contain; /* Ensure the image fits well within the given space */
+    }
+
     .movie-name {
         color: white;
-        margin: 10px 0 10px 0;
+        margin-top: 10px;
+        font-size: 16px;
     }
-    
-    .movie-poster {
-        margin: 10px 0 10px 0;
-    }
-    
-
-
     </style>
     """, unsafe_allow_html=True)
 
